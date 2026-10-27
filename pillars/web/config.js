@@ -1,1 +1,1 @@
-window.CFG={url:'https://YOUR-PROJECT.supabase.co',key:'YOUR-ANON-PUBLIC-KEY'}
+window.CFG={url:'https://sb_publishable_P5gYZON5oIbHgGuuxGOgCA_hrSdqV-v.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4a3ZmdW5xb3h3d2R2b3Z0eHNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwNTE4NjgsImV4cCI6MjEwODYyNzg2OH0.RgnPresJkLahT1Q1vtg1txGEchFyFbjPfhedyHL5AvY'}
