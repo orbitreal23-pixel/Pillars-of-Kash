@@ -10,7 +10,7 @@ const RL={admin:'Super Admin',treasurer:'Treasurer',secretary:'Secretary',audito
 let me,tab='members';
 const can=(...r)=>r.includes(me.role),fail=e=>alert(e.message||e.error||e);
 async function boot(){const{data:{session}}=await sb.auth.getSession();if(!session)return login();
- const{data,error}=await sb.from('staff').select('name,role,member_id').single();if(error){await sb.auth.signOut();return login('No portal access for this account')}me=data;tab=me.role=='member'?'me':'ov';show()}
+ const{data,error}=await sb.from('staff').select('name,role,member_id').eq('user_id',session.user.id).single();if(error){await sb.auth.signOut();return login('No portal access for this account')}me=data;tab=me.role=='member'?'me':'ov';show()}
 function login(msg=''){$('root').innerHTML=`<main style="max-width:360px"><div class="c"><h2>Pillars of Kash</h2><input id="ph" placeholder="Phone number" inputmode="tel" style="width:92%"><input id="pin" type="password" placeholder="6-digit PIN" inputmode="numeric" maxlength="6" style="width:92%"><button class="b" onclick="go()">Sign in</button><p class="err">${msg}</p></div></main>`}
 async function go(){const{error}=await sb.auth.signInWithPassword({email:norm($('ph').value)+'@pillars.local',password:$('pin').value});error?login(error.message):boot()}
 const tabs=()=>me.role=='member'?[['me','My account'],['loans','Loans']]:[['ov','Overview'],['members','Members'],...(can('admin','treasurer','auditor')?[['pay','General ledger']]:[]),...(can('secretary')?[]:[['loans','Loans']]),...(can('admin','treasurer')?[['appr','Approvals']]:[]),...(can('admin','treasurer','auditor')?[['reps','Reports']]:[]),...(can('admin')?[['users','Users & roles']]:[]),...(can('admin','auditor')?[['audit','Audit log']]:[])];
