@@ -1,5 +1,6 @@
-   {
-     "name": "pillars-of-kash",
-     "compatibility_date": "2026-10-01",
-     "assets": { "directory": "./pillars/web" }
-   }
+{
+  "name": "pillars-of-kash",
+  "main": "pillars/worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./pillars/web", "binding": "ASSETS" }
+}
